@@ -106,7 +106,7 @@ class Calculator extends StatelessWidget {
                   ),
                   FloatingActionButton(
                     onPressed: () {
-                      print("mul is clicked");
+                      print("X is clicked");
                     },
                     child: Icon(CupertinoIcons.multiply),
                   )
