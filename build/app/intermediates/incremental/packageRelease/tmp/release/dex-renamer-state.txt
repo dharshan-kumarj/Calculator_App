@@ -1,0 +1,4 @@
+#Sat Dec 07 08:21:33 UTC 2024
+base.0=/home/user/Calculator_App/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
