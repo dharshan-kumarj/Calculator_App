@@ -1,12 +1,25 @@
 import 'package:flutter/cupertino.dart';
-import '../static/Buttons.dart';
+import 'Static/Calculator.dart';
+import 'Static/Widgets/Display.dart';
+import 'Static/Widgets/Buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import '../Logics/CalculatorLogics/CoreLogics.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: Calculator(),
-  ));
+  runApp(MyApp());
 }
 
-
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Calculator App',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: Calculator(),
+    );
+  }
+}
