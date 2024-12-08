@@ -204,6 +204,15 @@ string call_notification_hang_up_action
 string call_notification_incoming_text
 string call_notification_ongoing_text
 string call_notification_screening_text
+string exo_download_completed
+string exo_download_description
+string exo_download_downloading
+string exo_download_failed
+string exo_download_notification_channel_name
+string exo_download_paused
+string exo_download_paused_for_network
+string exo_download_paused_for_wifi
+string exo_download_removing
 string status_bar_notification_info_overflow
 style LaunchTheme
 style NormalTheme

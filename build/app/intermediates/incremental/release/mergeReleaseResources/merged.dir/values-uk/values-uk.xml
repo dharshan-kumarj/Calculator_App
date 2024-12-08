@@ -7,5 +7,14 @@
     <string msgid="6107532579223922871" name="call_notification_incoming_text">"Вхідний виклик"</string>
     <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Активний виклик"</string>
     <string msgid="59049573811482460" name="call_notification_screening_text">"Вхідний виклик (Фільтр)"</string>
+    <string name="exo_download_completed">Завантаження завершено</string>
+    <string name="exo_download_description">Завантажити</string>
+    <string name="exo_download_downloading">Завантажується</string>
+    <string name="exo_download_failed">Не вдалося завантажити</string>
+    <string name="exo_download_notification_channel_name">Завантаження</string>
+    <string name="exo_download_paused">Завантаження призупинено</string>
+    <string name="exo_download_paused_for_network">Очікується підключення до мережі</string>
+    <string name="exo_download_paused_for_wifi">Очікується підключення до Wi-Fi</string>
+    <string name="exo_download_removing">Завантаження видаляються</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

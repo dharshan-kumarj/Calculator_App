@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:video_player/video_player.dart';
 
 class DashboardPage extends StatefulWidget {
   @override
@@ -14,8 +15,11 @@ class _DashboardPageState extends State<DashboardPage> {
   final ImagePicker _picker = ImagePicker();
 
   // Lists to store local file paths
-  List<String> _photoFiles = [];
-  List<String> _videoFiles = [];
+  List<File> _photoFiles = [];
+  List<File> _videoFiles = [];
+
+  // Video player controllers
+  Map<int, VideoPlayerController> _videoControllers = {};
 
   @override
   void initState() {
@@ -95,14 +99,16 @@ class _DashboardPageState extends State<DashboardPage> {
       final String localPath = '$storagePath/$fileName';
 
       // Copy file to secure location
-      await File(pickedFile.path).copy(localPath);
+      final file = await File(pickedFile.path).copy(localPath);
 
       // Update state to reflect new file
       setState(() {
         if (isVideo) {
-          _videoFiles.add(localPath);
+          _videoFiles.add(file);
+          _videoControllers[_videoFiles.length - 1] = VideoPlayerController.file(file)
+            ..initialize().then((_) => setState(() {}));
         } else {
-          _photoFiles.add(localPath);
+          _photoFiles.add(file);
         }
       });
 
@@ -116,30 +122,56 @@ class _DashboardPageState extends State<DashboardPage> {
 
   // View saved files method
   void _viewSavedFiles(bool isVideo) {
-    final files = isVideo ? _videoFiles : _photoFiles;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Saved ${isVideo ? 'Videos' : 'Photos'}'),
-        content: files.isEmpty
-            ? Text('No ${isVideo ? 'videos' : 'photos'} saved yet.')
-            : SizedBox(
-                height: 300,
-                width: 300,
-                child: ListView.builder(
-                  itemCount: files.length,
-                  itemBuilder: (context, index) => ListTile(
-                    title: Text('File ${index + 1}'),
-                    subtitle: Text(files[index]),
-                  ),
-                ),
-              ),
+        content: isVideo
+            ? _buildVideoList()
+            : _buildPhotoList(),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
             child: Text('Close'),
           ),
         ],
+      ),
+    );
+  }
+
+  // Build video list
+  Widget _buildVideoList() {
+    return SizedBox(
+      height: 300,
+      width: 300,
+      child: ListView.builder(
+        itemCount: _videoFiles.length,
+        itemBuilder: (context, index) => Column(
+          children: [
+            AspectRatio(
+              aspectRatio: _videoControllers[index]?.value.aspectRatio ?? 16 / 9,
+              child: VideoPlayer(_videoControllers[index] ?? VideoPlayerController.file(_videoFiles[index])),
+            ),
+            TextButton(
+              onPressed: () => _videoControllers[index]!.value.isPlaying
+                  ? _videoControllers[index]?.pause()
+                  : _videoControllers[index]?.play(),
+              child: Text(_videoControllers[index]?.value.isPlaying ?? false ? 'Pause' : 'Play'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Build photo list
+  Widget _buildPhotoList() {
+    return SizedBox(
+      height: 300,
+      width: 300,
+      child: ListView.builder(
+        itemCount: _photoFiles.length,
+        itemBuilder: (context, index) => Image.file(_photoFiles[index]),
       ),
     );
   }

@@ -7,5 +7,14 @@
     <string msgid="6107532579223922871" name="call_notification_incoming_text">"ສາຍໂທເຂົ້າ"</string>
     <string msgid="8623827134497363134" name="call_notification_ongoing_text">"ສາຍໂທອອກ"</string>
     <string msgid="59049573811482460" name="call_notification_screening_text">"ກຳລັງກວດສອບສາຍໂທເຂົ້າ"</string>
+    <string name="exo_download_completed">ດາວໂຫລດສຳເລັດແລ້ວ</string>
+    <string name="exo_download_description">ດາວໂຫລດ</string>
+    <string name="exo_download_downloading">ກຳລັງດາວໂຫລດ</string>
+    <string name="exo_download_failed">ດາວໂຫຼດບໍ່ສຳເລັດ</string>
+    <string name="exo_download_notification_channel_name">ດາວໂຫລດ</string>
+    <string name="exo_download_paused">ຢຸດດາວໂຫຼດຊົ່ວຄາວແລ້ວ</string>
+    <string name="exo_download_paused_for_network">ການດາວໂຫຼດກຳລັງລໍຖ້າເຄືອຂ່າຍຢູ່</string>
+    <string name="exo_download_paused_for_wifi">ການດາວໂຫຼດກຳລັງລໍຖ້າ WiFi ຢູ່</string>
+    <string name="exo_download_removing">ກຳລັງລຶບການດາວໂຫລດອອກ</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>
