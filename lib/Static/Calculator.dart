@@ -1,17 +1,80 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
 import 'Widgets/Display.dart';
 import 'Widgets/Buttons.dart';
-import '../Logics/CalculatorLogics/CoreLogics.dart';
+import '../Logics/Authentication/Auth.dart';
 
 class Calculator extends StatefulWidget {
   @override
   _CalculatorState createState() => _CalculatorState();
 }
 
-class _CalculatorState extends State<Calculator> {
-  final CalculatorLogic _logic = CalculatorLogic();
+class _CalculatorState extends State {
+  final AuthLogic _logic = AuthLogic();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _checkFirstTimeUser();
+  }
+
+  Future<void> _checkFirstTimeUser() async {
+    if (await _logic.isFirstTime()) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _showInitialPasswordSetupDialog();
+      });
+    }
+  }
+
+  void _showInitialPasswordSetupDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Welcome!'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Please set up a 4-digit password for your calculator.'),
+              SizedBox(height: 16),
+              TextField(
+                controller: _passwordController,
+                keyboardType: TextInputType.number,
+                maxLength: 4,
+                decoration: InputDecoration(
+                  hintText: 'Enter 4-digit password',
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              child: Text('Save'),
+              onPressed: () async {
+                if (_passwordController.text.length == 4) {
+                  bool success = await _logic.savePassword(_passwordController.text);
+                  if (success) {
+                    Navigator.of(context).pop();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Password set successfully!')),
+                    );
+                  }
+                  _passwordController.clear();
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Please enter a 4-digit password')),
+                  );
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   void _handleButtonPress(String value) {
     setState(() {
@@ -23,7 +86,7 @@ class _CalculatorState extends State<Calculator> {
           _logic.deleteLastChar();
           break;
         case '=':
-          _logic.calculateResult();
+          _handleEquals();
           break;
         case '+':
           _logic.setOperator('add');
@@ -44,6 +107,30 @@ class _CalculatorState extends State<Calculator> {
           _logic.updateDisplay(value);
       }
     });
+  }
+
+  void _handleEquals() {
+    // Check if this might be a password verification attempt
+    if (_logic.isPasswordAttempt()) {
+      _verifyPassword();
+    } else {
+      // Normal calculation
+      _logic.calculateResult();
+    }
+  }
+
+  Future<void> _verifyPassword() async {
+    String attempt = _logic.displayText;
+    bool isValid = await _logic.validatePassword(attempt);
+    
+    if (isValid) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Password verified successfully!')),
+      );
+    } else {
+      // If invalid password, treat it as a normal number
+      _logic.calculateResult();
+    }
   }
 
   @override
@@ -68,5 +155,11 @@ class _CalculatorState extends State<Calculator> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _passwordController.dispose();
+    super.dispose();
   }
 }
