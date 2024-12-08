@@ -11,14 +11,9 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  // Image and Video Picker
   final ImagePicker _picker = ImagePicker();
-
-  // Lists to store local file paths
   List<File> _photoFiles = [];
   List<File> _videoFiles = [];
-
-  // Video player controllers
   Map<int, VideoPlayerController> _videoControllers = {};
 
   @override
@@ -27,9 +22,7 @@ class _DashboardPageState extends State<DashboardPage> {
     _checkAndRequestPermissions();
   }
 
-  // Check and request permissions
   Future<void> _checkAndRequestPermissions() async {
-    // Check and request storage/photo permissions
     if (Platform.isAndroid) {
       await _requestPermission(Permission.storage);
       await _requestPermission(Permission.manageExternalStorage);
@@ -38,7 +31,6 @@ class _DashboardPageState extends State<DashboardPage> {
     }
   }
 
-  // Request a single permission
   Future<void> _requestPermission(Permission permission) async {
     final status = await permission.request();
     if (status != PermissionStatus.granted) {
@@ -46,7 +38,6 @@ class _DashboardPageState extends State<DashboardPage> {
     }
   }
 
-  // Show permission denied dialog
   void _showPermissionDeniedDialog() {
     showDialog(
       context: context,
@@ -57,7 +48,7 @@ class _DashboardPageState extends State<DashboardPage> {
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
-              openAppSettings(); // Opens app settings
+              openAppSettings();
             },
             child: Text('Open Settings'),
           ),
@@ -70,7 +61,6 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  // Get secure local storage path
   Future<String> _getLocalStoragePath(bool isVideo) async {
     final directory = await getApplicationDocumentsDirectory();
     final targetDirectory = Directory('${directory.path}/${isVideo ? 'videos' : 'photos'}');
@@ -80,28 +70,21 @@ class _DashboardPageState extends State<DashboardPage> {
     return targetDirectory.path;
   }
 
-  // File upload method
   Future<void> _uploadFile(bool isVideo) async {
     try {
-      // Pick file from gallery
       final XFile? pickedFile = isVideo
           ? await _picker.pickVideo(source: ImageSource.gallery)
           : await _picker.pickImage(source: ImageSource.gallery);
 
       if (pickedFile == null) return;
 
-      // Get secure local storage path
       final storagePath = await _getLocalStoragePath(isVideo);
-
-      // Generate unique filename
       final String fileName = DateTime.now().millisecondsSinceEpoch.toString() +
                               (isVideo ? '.mp4' : '.jpg');
       final String localPath = '$storagePath/$fileName';
 
-      // Copy file to secure location
       final file = await File(pickedFile.path).copy(localPath);
 
-      // Update state to reflect new file
       setState(() {
         if (isVideo) {
           _videoFiles.add(file);
@@ -112,71 +95,201 @@ class _DashboardPageState extends State<DashboardPage> {
         }
       });
 
-      // Show success dialog
       _showUploadSuccessDialog(isVideo);
     } catch (e) {
-      // Show detailed error dialog
       _showUploadErrorDialog(e.toString());
     }
   }
 
-  // View saved files method
   void _viewSavedFiles(bool isVideo) {
-    showDialog(
+    showModalBottomSheet(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text('Saved ${isVideo ? 'Videos' : 'Photos'}'),
-        content: isVideo
-            ? _buildVideoList()
-            : _buildPhotoList(),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text('Close'),
-          ),
-        ],
+      isScrollControlled: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-    );
-  }
-
-  // Build video list
-  Widget _buildVideoList() {
-    return SizedBox(
-      height: 300,
-      width: 300,
-      child: ListView.builder(
-        itemCount: _videoFiles.length,
-        itemBuilder: (context, index) => Column(
-          children: [
-            AspectRatio(
-              aspectRatio: _videoControllers[index]?.value.aspectRatio ?? 16 / 9,
-              child: VideoPlayer(_videoControllers[index] ?? VideoPlayerController.file(_videoFiles[index])),
-            ),
-            TextButton(
-              onPressed: () => _videoControllers[index]!.value.isPlaying
-                  ? _videoControllers[index]?.pause()
-                  : _videoControllers[index]?.play(),
-              child: Text(_videoControllers[index]?.value.isPlaying ?? false ? 'Pause' : 'Play'),
-            ),
-          ],
+      builder: (context) => DraggableScrollableSheet(
+        initialChildSize: 0.9,
+        minChildSize: 0.5,
+        maxChildSize: 0.95,
+        builder: (_, controller) => Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'Saved ${isVideo ? 'Videos' : 'Photos'}',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.purple[600],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: isVideo ? _buildVideoGrid(controller) : _buildPhotoGrid(controller),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  // Build photo list
-  Widget _buildPhotoList() {
-    return SizedBox(
-      height: 300,
-      width: 300,
-      child: ListView.builder(
-        itemCount: _photoFiles.length,
-        itemBuilder: (context, index) => Image.file(_photoFiles[index]),
+  Widget _buildVideoGrid(ScrollController scrollController) {
+    return GridView.builder(
+      controller: scrollController,
+      padding: EdgeInsets.all(10),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 0.8,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+      ),
+      itemCount: _videoFiles.length,
+      itemBuilder: (context, index) {
+        final videoController = _videoControllers[index];
+        return Card(
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Column(
+            children: [
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                  child: AspectRatio(
+                    aspectRatio: videoController?.value.aspectRatio ?? 16 / 9,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        VideoPlayer(videoController ?? VideoPlayerController.file(_videoFiles[index])),
+                        Center(
+                          child: IconButton(
+                            icon: Icon(
+                              videoController?.value.isPlaying ?? false 
+                                ? Icons.pause_circle 
+                                : Icons.play_circle,
+                              size: 50,
+                              color: Colors.white.withOpacity(0.7),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                videoController?.value.isPlaying ?? false
+                                    ? videoController?.pause()
+                                    : videoController?.play();
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Video ${index + 1}',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.purple[600],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildPhotoGrid(ScrollController scrollController) {
+    return GridView.builder(
+      controller: scrollController,
+      padding: EdgeInsets.all(10),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 1,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+      ),
+      itemCount: _photoFiles.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            _showFullScreenImage(_photoFiles[index]);
+          },
+          child: Card(
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.file(
+                    _photoFiles[index],
+                    fit: BoxFit.cover,
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      color: Colors.black54,
+                      padding: EdgeInsets.symmetric(vertical: 5),
+                      child: Text(
+                        'Photo ${index + 1}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showFullScreenImage(File imageFile) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => Scaffold(
+          backgroundColor: Colors.black,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            leading: IconButton(
+              icon: Icon(Icons.close, color: Colors.white),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+          body: Center(
+            child: InteractiveViewer(
+              child: Image.file(
+                imageFile,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
 
-  // Success upload dialog
   void _showUploadSuccessDialog(bool isVideo) {
     showDialog(
       context: context,
@@ -193,7 +306,6 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  // Error upload dialog
   void _showUploadErrorDialog(String error) {
     showDialog(
       context: context,
@@ -210,7 +322,6 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  // Build method for card widget
   Widget _buildCard(BuildContext context,
       {required String title,
       required IconData icon,
@@ -265,13 +376,12 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  // Main build method
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Dashboard',
+          'Media Gallery',
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
