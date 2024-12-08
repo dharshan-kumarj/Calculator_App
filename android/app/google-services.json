@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1089794679777",
+    "firebase_url": "https://calculator-9dd7e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "calculator-9dd7e",
+    "storage_bucket": "calculator-9dd7e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089794679777:android:189993a225b76b13abe8a0",
+        "android_client_info": {
+          "package_name": "com.turplespace.calculator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtoCnZHRSmZ-hCgPNguvXRNfYydW18B2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
