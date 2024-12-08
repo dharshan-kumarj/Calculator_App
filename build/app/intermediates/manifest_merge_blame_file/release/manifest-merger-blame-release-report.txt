@@ -55,8 +55,8 @@
 38        android:extractNativeLibs="true"
 39        android:icon="@mipmap/ic_launcher"
 39-->/home/user/Calculator_App/android/app/src/main/AndroidManifest.xml:5:9-43
-40        android:label="myapp" >
-40-->/home/user/Calculator_App/android/app/src/main/AndroidManifest.xml:3:9-30
+40        android:label="Calculator" >
+40-->/home/user/Calculator_App/android/app/src/main/AndroidManifest.xml:3:9-35
 41        <activity
 41-->/home/user/Calculator_App/android/app/src/main/AndroidManifest.xml:6:9-27:20
 42            android:name="com.example.myapp.MainActivity"

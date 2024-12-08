@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'Widgets/Display.dart';
 import 'Widgets/Buttons.dart';
 import '../Logics/Authentication/Auth.dart';
+import '../Static/Widgets/DashBoard.dart';
 
 class Calculator extends StatefulWidget {
   @override
@@ -177,10 +178,15 @@ class _CalculatorState extends State {
   Future<void> _verifyPassword() async {
     String attempt = _logic.displayText;
     bool isValid = await _logic.validatePassword(attempt);
-    
+
     if (isValid) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Password verified successfully!')),
+      );
+
+      // Navigate to the dashboard page
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => DashboardPage()),
       );
     } else {
       // If invalid password, treat it as a normal number

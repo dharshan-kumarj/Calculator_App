@@ -39,7 +39,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/user/
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /home/user/.gradle/caches/transforms-3/c666c258fca39b3353b46678a6b928ab/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:label
-		ADDED from /home/user/Calculator_App/android/app/src/main/AndroidManifest.xml:3:9-30
+		ADDED from /home/user/Calculator_App/android/app/src/main/AndroidManifest.xml:3:9-35
 	android:icon
 		ADDED from /home/user/Calculator_App/android/app/src/main/AndroidManifest.xml:5:9-43
 	android:name
