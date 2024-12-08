@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'Widgets/Display.dart';
@@ -76,6 +75,55 @@ class _CalculatorState extends State {
     );
   }
 
+  void _showPasswordUpdateDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Update Password'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Enter a new 4-digit password.'),
+              SizedBox(height: 16),
+              TextField(
+                controller: _passwordController,
+                keyboardType: TextInputType.number,
+                maxLength: 4,
+                decoration: InputDecoration(
+                  hintText: 'Enter new 4-digit password',
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              child: Text('Save'),
+              onPressed: () async {
+                if (_passwordController.text.length == 4) {
+                  bool success = await _logic.savePassword(_passwordController.text);
+                  if (success) {
+                    _logic.resetPasswordUpdateMode();
+                    Navigator.of(context).pop();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Password updated successfully!')),
+                    );
+                  }
+                  _passwordController.clear();
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Please enter a 4-digit password')),
+                  );
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void _handleButtonPress(String value) {
     setState(() {
       switch (value) {
@@ -110,6 +158,13 @@ class _CalculatorState extends State {
   }
 
   void _handleEquals() {
+    // Check if this might be a password update trigger
+    if (_logic.isPasswordUpdateTrigger()) {
+      _logic.enablePasswordUpdateMode();
+      _showPasswordUpdateDialog();
+      return;
+    }
+
     // Check if this might be a password verification attempt
     if (_logic.isPasswordAttempt()) {
       _verifyPassword();
