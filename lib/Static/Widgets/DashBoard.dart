@@ -12,45 +12,37 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   // Image and Video Picker
   final ImagePicker _picker = ImagePicker();
-  
+
   // Lists to store local file paths
   List<String> _photoFiles = [];
   List<String> _videoFiles = [];
 
-  // Comprehensive permission request method
-  Future<bool> _requestPermission(Permission permission) async {
-    if (await permission.isGranted) {
-      return true;
-    }
-
-    final result = await permission.request();
-    return result == PermissionStatus.granted;
+  @override
+  void initState() {
+    super.initState();
+    _checkAndRequestPermissions();
   }
 
-  // Method to handle multiple permission requests
-  Future<bool> _handlePermissions() async {
+  // Check and request permissions
+  Future<void> _checkAndRequestPermissions() async {
+    // Check and request storage/photo permissions
     if (Platform.isAndroid) {
-      // For Android, request storage permissions
-      final storagePermission = await _requestPermission(Permission.storage);
-      final manageStoragePermission = await _requestPermission(Permission.manageExternalStorage);
-
-      if (!storagePermission || !manageStoragePermission) {
-        _showPermissionDeniedDialog();
-        return false;
-      }
+      await _requestPermission(Permission.storage);
+      await _requestPermission(Permission.manageExternalStorage);
     } else if (Platform.isIOS) {
-      // For iOS, request photo library permissions
-      final photoPermission = await _requestPermission(Permission.photos);
-      if (!photoPermission) {
-        _showPermissionDeniedDialog();
-        return false;
-      }
+      await _requestPermission(Permission.photos);
     }
-
-    return true;
   }
 
-  // Method to show permission denied dialog
+  // Request a single permission
+  Future<void> _requestPermission(Permission permission) async {
+    final status = await permission.request();
+    if (status != PermissionStatus.granted) {
+      _showPermissionDeniedDialog();
+    }
+  }
+
+  // Show permission denied dialog
   void _showPermissionDeniedDialog() {
     showDialog(
       context: context,
@@ -76,33 +68,17 @@ class _DashboardPageState extends State<DashboardPage> {
 
   // Get secure local storage path
   Future<String> _getLocalStoragePath(bool isVideo) async {
-    // Ensure permissions are granted
-    final permissionsGranted = await _handlePermissions();
-    if (!permissionsGranted) {
-      throw Exception('Permissions not granted');
-    }
-
-    // Get app-specific secure directory
     final directory = await getApplicationDocumentsDirectory();
-    
-    // Create subdirectory for photos or videos
     final targetDirectory = Directory('${directory.path}/${isVideo ? 'videos' : 'photos'}');
-    
-    // Create directory if it doesn't exist
     if (!await targetDirectory.exists()) {
       await targetDirectory.create(recursive: true);
     }
-
     return targetDirectory.path;
   }
 
   // File upload method
   Future<void> _uploadFile(bool isVideo) async {
     try {
-      // Ensure permissions are granted before attempting to pick file
-      final permissionsGranted = await _handlePermissions();
-      if (!permissionsGranted) return;
-
       // Pick file from gallery
       final XFile? pickedFile = isVideo
           ? await _picker.pickVideo(source: ImageSource.gallery)
@@ -114,8 +90,8 @@ class _DashboardPageState extends State<DashboardPage> {
       final storagePath = await _getLocalStoragePath(isVideo);
 
       // Generate unique filename
-      final String fileName = DateTime.now().millisecondsSinceEpoch.toString() + 
-                               (isVideo ? '.mp4' : '.jpg');
+      final String fileName = DateTime.now().millisecondsSinceEpoch.toString() +
+                              (isVideo ? '.mp4' : '.jpg');
       final String localPath = '$storagePath/$fileName';
 
       // Copy file to secure location
@@ -204,9 +180,9 @@ class _DashboardPageState extends State<DashboardPage> {
 
   // Build method for card widget
   Widget _buildCard(BuildContext context,
-      {required String title, 
-      required IconData icon, 
-      required VoidCallback onTap, 
+      {required String title,
+      required IconData icon,
+      required VoidCallback onTap,
       required VoidCallback onView}) {
     return Card(
       elevation: 5,
@@ -294,7 +270,6 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Show a bottom sheet to choose upload type
           showModalBottomSheet(
             context: context,
             builder: (BuildContext context) {
