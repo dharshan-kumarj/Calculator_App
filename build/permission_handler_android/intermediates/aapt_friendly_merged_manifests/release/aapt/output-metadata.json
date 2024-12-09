@@ -5,7 +5,7 @@
     "kind": "Directory"
   },
   "applicationId": "com.baseflow.permissionhandler",
-  "variantName": "release",
+  "variantName": "debug",
   "elements": [
     {
       "type": "SINGLE",

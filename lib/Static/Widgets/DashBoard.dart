@@ -315,6 +315,41 @@ class _DashboardPageState extends State<DashboardPage> {
                 icon: Icon(Icons.download, color: Colors.white),
                 onPressed: () => _exportToGallery(imageFile.path),
               ),
+              IconButton(
+                icon: Icon(Icons.delete, color: Colors.white),
+                onPressed: () {
+                  // Show delete confirmation dialog
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text('Delete Image'),
+                      content: Text('Are you sure you want to delete this image?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            // Delete the image
+                            int index = _photoPaths.indexOf(imageFile.path);
+                            if (index != -1) {
+                              setState(() {
+                                File(imageFile.path).deleteSync();
+                                _photoPaths.removeAt(index);
+                                _saveFilesList();
+                              });
+                              // Close the full-screen view and go back to gallery
+                              Navigator.of(context).popUntil((route) => route.isFirst);
+                            }
+                          },
+                          child: Text('Delete', style: TextStyle(color: Colors.red)),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ],
             leading: IconButton(
               icon: Icon(Icons.close, color: Colors.white),
@@ -468,20 +503,57 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   }
 
   @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    backgroundColor: Colors.black,
-    appBar: AppBar(
-      backgroundColor: Colors.transparent,
-      actions: [
-        IconButton(
-          icon: Icon(Icons.download, color: Colors.white),
-          onPressed: () => _exportToGallery(widget.videoPath),
-        ),
-      ],
-    ),
-    body: Center(
-      child: _controller.value.isInitialized
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.download, color: Colors.white),
+            onPressed: () => _exportToGallery(widget.videoPath),
+          ),
+          IconButton(
+            icon: Icon(Icons.delete, color: Colors.white),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text('Delete Video'),
+                  content: Text('Are you sure you want to delete this video?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: Text('Cancel'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        int index = (context.findAncestorStateOfType<_DashboardPageState>()
+                            as _DashboardPageState)._videoPaths.indexOf(widget.videoPath);
+                        
+                        if (index != -1) {
+                          (context.findAncestorStateOfType<_DashboardPageState>()
+                              as _DashboardPageState).setState(() {
+                            File(widget.videoPath).deleteSync();
+                            (context.findAncestorStateOfType<_DashboardPageState>()
+                                as _DashboardPageState)._videoPaths.removeAt(index);
+                            (context.findAncestorStateOfType<_DashboardPageState>()
+                                as _DashboardPageState)._saveFilesList();
+                          });
+                          Navigator.of(context).popUntil((route) => route.isFirst);
+                        }
+                      },
+                      child: Text('Delete', style: TextStyle(color: Colors.red)),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+      body: Center(
+        child: _controller.value.isInitialized
           ? AspectRatio(
               aspectRatio: _controller.value.aspectRatio,
               child: Stack(
@@ -519,9 +591,9 @@ Widget build(BuildContext context) {
               ),
             )
           : CircularProgressIndicator(),
-    ),
-  );
-}
+      ),
+    );
+  }
 
   void _exportToGallery(String filePath) async {
     try {
