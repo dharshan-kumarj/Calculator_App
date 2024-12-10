@@ -4,16 +4,12 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-anydpi-v21/ic_call_decline_low.xml"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_ic_call_answer_video.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/ic_call_answer_video.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/drawable-xxxhdpi-v4_ic_call_answer_video.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-xxxhdpi-v4/ic_call_answer_video.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/notification_bg_normal.9.png"
+        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.myapp-main-23:/drawable-hdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-xxxhdpi-v4_ic_call_decline.png.flat",
@@ -24,20 +20,12 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-anydpi-v21/ic_call_decline.xml"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/drawable_notification_bg_low.xml.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable/notification_bg_low.xml"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_ic_call_answer_video.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/ic_call_answer_video.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/ic_call_answer_video_low.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-ldpi-v4_ic_call_decline.png.flat",
@@ -48,24 +36,16 @@
         "source": "com.example.myapp-core-1.13.1-19:/layout-v21/notification_template_custom_big.xml"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.example.myapp-main-23:/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/layout-v21_notification_action_tombstone.xml.flat",
         "source": "com.example.myapp-core-1.13.1-19:/layout-v21/notification_action_tombstone.xml"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xxhdpi-v4_ic_call_answer_video.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxhdpi-v4/ic_call_answer_video.png"
+        "merged": "com.example.myapp-merged_res-30:/mipmap-hdpi_launcher_icon.png.flat",
+        "source": "com.example.myapp-main-23:/mipmap-hdpi/launcher_icon.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-anydpi-v21_ic_call_answer_low.xml.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-anydpi-v21/ic_call_answer_low.xml"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+        "merged": "com.example.myapp-merged_res-30:/mipmap-xhdpi_launcher_icon.png.flat",
+        "source": "com.example.myapp-main-23:/mipmap-xhdpi/launcher_icon.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
@@ -84,12 +64,8 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/ic_call_answer_low.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xxxhdpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxxhdpi-v4/ic_call_answer_video_low.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xxxhdpi-v4_ic_call_decline_low.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxxhdpi-v4/ic_call_decline_low.png"
+        "merged": "com.example.myapp-merged_res-30:/drawable-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.myapp-main-23:/drawable-xxxhdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-ldpi-v4_ic_call_answer.png.flat",
@@ -98,10 +74,6 @@
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_ic_call_answer_low.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/ic_call_answer_low.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/animator_fragment_open_exit.xml.flat",
@@ -120,10 +92,6 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-xxxhdpi-v4/ic_call_answer.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_ic_call_decline.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/ic_call_decline.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
@@ -136,32 +104,12 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-xxhdpi-v4/ic_call_answer.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/layout-v21_notification_template_icon_group.xml.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/layout-v21/notification_template_icon_group.xml"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/animator_fragment_fade_enter.xml.flat",
-        "source": "com.example.myapp-fragment-1.7.1-17:/animator/fragment_fade_enter.xml"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/layout_ime_secondary_split_test_activity.xml.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/layout/ime_secondary_split_test_activity.xml"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_notification_oversize_large_icon_bg.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/notification_oversize_large_icon_bg.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_ic_call_decline_low.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/ic_call_decline_low.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-v21_launch_background.xml.flat",
-        "source": "com.example.myapp-main-23:/drawable-v21/launch_background.xml"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/mipmap-hdpi_ic_launcher.png.flat",
@@ -172,44 +120,24 @@
         "source": "com.example.myapp-core-1.13.1-19:/layout/notification_template_part_time.xml"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xxhdpi-v4_ic_call_decline_low.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxhdpi-v4/ic_call_decline_low.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/drawable-ldpi-v4_ic_call_answer_low.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-ldpi-v4/ic_call_answer_low.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/animator_fragment_close_enter.xml.flat",
         "source": "com.example.myapp-fragment-1.7.1-17:/animator/fragment_close_enter.xml"
     },
     {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.myapp-main-23:/drawable-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
         "merged": "com.example.myapp-merged_res-30:/drawable_notification_tile_bg.xml.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable/notification_tile_bg.xml"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_ic_call_decline.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/ic_call_decline.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_ic_call_answer_low.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/ic_call_answer_low.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/animator_fragment_open_enter.xml.flat",
         "source": "com.example.myapp-fragment-1.7.1-17:/animator/fragment_open_enter.xml"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/anim-v21_fragment_fast_out_extra_slow_in.xml.flat",
-        "source": "com.example.myapp-fragment-1.7.1-17:/anim-v21/fragment_fast_out_extra_slow_in.xml"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xxhdpi-v4_ic_call_decline.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxhdpi-v4/ic_call_decline.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-ldpi-v4_ic_call_answer_video.png.flat",
@@ -220,24 +148,12 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/ic_call_answer.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/animator_fragment_fade_exit.xml.flat",
         "source": "com.example.myapp-fragment-1.7.1-17:/animator/fragment_fade_exit.xml"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.example.myapp-main-23:/mipmap-mdpi/ic_launcher.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_ic_call_answer.png.flat",
@@ -252,16 +168,12 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-anydpi-v21/ic_call_answer_video_low.xml"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.example.myapp-main-23:/mipmap-xxhdpi/ic_launcher.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/layout_ime_base_split_test_activity.xml.flat",
         "source": "com.example.myapp-core-1.13.1-19:/layout/ime_base_split_test_activity.xml"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.example.myapp-main-23:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "com.example.myapp-merged_res-30:/mipmap-mdpi_launcher_icon.png.flat",
+        "source": "com.example.myapp-main-23:/mipmap-mdpi/launcher_icon.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/drawable-anydpi-v21_ic_call_answer.xml.flat",
@@ -272,14 +184,6 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/notification_bg_low_normal.9.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/ic_call_answer_video_low.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/xml_flutter_image_picker_file_paths.xml.flat",
-        "source": "com.example.myapp-packaged_res-32:/xml/flutter_image_picker_file_paths.xml"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
     },
@@ -288,20 +192,8 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/ic_call_decline.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_ic_call_answer.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/ic_call_answer.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_ic_call_answer_video.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/ic_call_answer_video.png"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable_notification_bg.xml.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable/notification_bg.xml"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xxhdpi-v4_ic_call_answer_video_low.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxhdpi-v4/ic_call_answer_video_low.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/layout-v21_notification_action.xml.flat",
@@ -312,12 +204,168 @@
         "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/ic_call_answer_video_low.png"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/notification_bg_normal.9.png"
-    },
-    {
         "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_ic_call_decline_low.png.flat",
         "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/layout_custom_dialog.xml.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/layout/custom_dialog.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xxxhdpi-v4_ic_call_answer_low.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxxhdpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_ic_call_answer_video.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.example.myapp-main-23:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xxhdpi-v4_ic_call_answer_video.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxhdpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-anydpi-v21_ic_call_answer_low.xml.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-anydpi-v21/ic_call_answer_low.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.myapp-main-23:/drawable-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/mipmap-xxhdpi_launcher_icon.png.flat",
+        "source": "com.example.myapp-main-23:/mipmap-xxhdpi/launcher_icon.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xxxhdpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxxhdpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xxxhdpi-v4_ic_call_decline_low.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxxhdpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_ic_call_answer_low.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_ic_call_decline.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/layout-v21_notification_template_icon_group.xml.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/animator_fragment_fade_enter.xml.flat",
+        "source": "com.example.myapp-fragment-1.7.1-17:/animator/fragment_fade_enter.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/layout_ime_secondary_split_test_activity.xml.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/layout/ime_secondary_split_test_activity.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_notification_oversize_large_icon_bg.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/notification_oversize_large_icon_bg.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-v21_launch_background.xml.flat",
+        "source": "com.example.myapp-main-23:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xxhdpi-v4_ic_call_decline_low.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxhdpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_ic_call_decline.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_ic_call_answer_low.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.myapp-main-23:/drawable-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/anim-v21_fragment_fast_out_extra_slow_in.xml.flat",
+        "source": "com.example.myapp-fragment-1.7.1-17:/anim-v21/fragment_fast_out_extra_slow_in.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xxhdpi-v4_ic_call_decline.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxhdpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.example.myapp-main-23:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/mipmap-anydpi-v26_launcher_icon.xml.flat",
+        "source": "com.example.myapp-main-23:/mipmap-anydpi-v26/launcher_icon.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.example.myapp-main-23:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.example.myapp-main-23:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/xml_flutter_image_picker_file_paths.xml.flat",
+        "source": "com.example.myapp-packaged_res-32:/xml/flutter_image_picker_file_paths.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-hdpi-v4_ic_call_answer.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-hdpi-v4/ic_call_answer.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable_notification_bg.xml.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-xxhdpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxhdpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "com.example.myapp-merged_res-30:/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "com.example.myapp-core-1.13.1-19:/drawable-mdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "com.example.myapp-merged_res-30:/animator_fragment_close_exit.xml.flat",
@@ -336,11 +384,7 @@
         "source": "com.example.myapp-core-1.13.1-19:/layout/notification_template_part_chronometer.xml"
     },
     {
-        "merged": "com.example.myapp-merged_res-30:/layout_custom_dialog.xml.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/layout/custom_dialog.xml"
-    },
-    {
-        "merged": "com.example.myapp-merged_res-30:/drawable-xxxhdpi-v4_ic_call_answer_low.png.flat",
-        "source": "com.example.myapp-core-1.13.1-19:/drawable-xxxhdpi-v4/ic_call_answer_low.png"
+        "merged": "com.example.myapp-merged_res-30:/mipmap-xxxhdpi_launcher_icon.png.flat",
+        "source": "com.example.myapp-main-23:/mipmap-xxxhdpi/launcher_icon.png"
     }
 ]
