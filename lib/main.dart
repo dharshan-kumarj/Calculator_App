@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'Static/Calculator.dart';
-import 'Static/Widgets/Display.dart';
-import 'Static/Widgets/Buttons.dart';
+import 'Static/CalculatorMain.dart';
+import 'Static/Widgets/Calculator/Display.dart';
+import 'Static/Widgets/Calculator/Buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import '../Logics/CalculatorLogics/CoreLogics.dart';
